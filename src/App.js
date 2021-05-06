@@ -8,45 +8,57 @@ class App extends React.Component {
         super();
 
         this.state = {
-            result: ""
+            result: "0"
         }
     }
+
 
     onClick = button => {
       if (button === "="){
         this.calculate()
-      }
+        }
+      
 
       else if (button === "C") {
-        this.reset()
+        this.setState ({
+          result : "0"
+        })
       }
 
       else if (button === "CE") {
-        this.backspace()
+        this.setState ({
+          result : this.state.result.slice(0,-1)
+        })
+      }
+
+      else if (button === "±") {
+        this.setState({result : this.state.result * -1})
+
       }
 
       else {
-        this.setState({
-          result: this.state.result + button
-        })
+        if (this.state.result ==="0"){
+          this.setState ({
+            result : button
+          })
+        } else {
+          this.setState({
+            result : this.state.result + button
+          })
+        }
       }
     }
 
     calculate = () => {
+      let mathResult
+      try{
+        mathResult = eval(this.state.result)
+      } catch (e) {
+        mathResult = "0"
+        alert("ERROR")
+      }
       this.setState({
-        result : (eval(this.state.result) || "") + ""
-      })
-    }
-
-    reset = () => {
-      this.setState ({
-        result: ""
-      })
-    }
-
-    backspace = () => {
-      this.setState({
-        result: this.state.result.slice(0,-1)
+        result : mathResult
       })
     }
 
