@@ -8,13 +8,17 @@ class App extends React.Component {
         super();
 
         this.state = {
-            result: "0"
+            result: "0" ,
+            pressedEqual : false,
         }
     }
 
 
     onClick = button => {
       if (button === "="){
+        this.setState({
+          pressedEqual : true,
+        })
         this.calculate()
         }
       
@@ -36,23 +40,29 @@ class App extends React.Component {
 
       }
 
+        //When numbers are pressed, this code is triggered.
       else {
-        if (this.state.result ==="0"){
+        if (this.state.result ==="0" || this.state.pressedEqual ){
           this.setState ({
-            result : button
+            result : button,
+            pressedEqual: false,
           })
         } else {
           this.setState({
             result : this.state.result + button
           })
+
         }
       }
     }
+  
 
     calculate = () => {
       let mathResult
       try{
+        console.log(typeof this.state.result)
         mathResult = eval(this.state.result)
+        console.log(typeof mathResult)
       } catch (e) {
         mathResult = "0"
         alert("ERROR")
