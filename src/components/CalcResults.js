@@ -1,36 +1,32 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
 export default class CalcResults extends Component {
-    constructor() {
-        super() 
 
-        // this.state = {
-        //     result : "0"
-        // }
-        
+
+  render() {
+    let result = String(this.props.result);
+    let operation;
+    if (result.includes("+")) {
+      operation = "+";
+    } else if (result.includes("-")) {
+      operation = "-";
+    } else if (result.includes("*")) {
+      operation = "*";
+    } else if (result.includes("/")) {
+      operation = "/";
     }
-    // formattedDisplay = () => {
-    //     const { display } = this.state.result
-    //     return display.toLocaleString() 
-    // }
-    
-    
-    
-    render() {
-        let { result } = this.props
-        // let resultToDisplay;
-        // if (result.includes("+")) {
-        //     resultToDisplay = result
-        // }
-        // else { 
-        //     resultToDisplay = Number(result).toLocaleString()
-        // }
-        return (
-            <div className="result">
-            
-                <p>{result.toLocaleString()}</p>
-                
-            </div>
-        )
-    }
+
+    let resultArr = result.split(operation);
+    console.log(resultArr);
+
+    let newResultArr = resultArr.map((num) => {
+      return Number(num).toLocaleString();
+    });
+
+    return (
+      <div className="result">
+        <p>{newResultArr.join(operation)}</p>
+      </div>
+    );
+  }
 }
