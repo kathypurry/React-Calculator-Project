@@ -60,9 +60,7 @@ class App extends React.Component {
     calculate = () => {
       let mathResult
       try{
-        console.log(typeof this.state.result)
-        mathResult = eval(this.state.result)
-        console.log(typeof mathResult)
+        mathResult = Math.round(eval(this.state.result))
       } catch (e) {
         mathResult = "0"
         alert("ERROR")

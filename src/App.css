@@ -1,17 +1,25 @@
 .calculator-body {
   background-color: ghostwhite;
   border: solid grey;
-  display: grid;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .result {
   background-position-x: center;
-  border: black
+  border: black;
 }
 
 button {
   background-color: lightblue;
   width: 50px;
   height: 50px;
+}
+
+#top{
+  grid-template-rows: auto;
+  width: 66.59px;
+  flex-grow: inherit;
 }

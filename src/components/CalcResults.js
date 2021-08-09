@@ -30,3 +30,7 @@ export default class CalcResults extends Component {
     );
   }
 }
+
+//number 0 is showing up after operation is pressed
+//when console.logged, it shows up as a new index
+//have to figure out how to cancel

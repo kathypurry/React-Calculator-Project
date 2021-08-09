@@ -5,9 +5,9 @@ export default class Keypad extends Component {
         return (
             <div className="button">
 
-                <button className="±" onClick={e => this.props.onClick(e.target.className)}>±</button>
-                <button className="CE" onClick={e => this.props.onClick(e.target.className)}>CE</button>
-                <button className="C" onClick={e => this.props.onClick(e.target.className)}>C</button><br/>
+                <button className="±" id="top" onClick={e => this.props.onClick(e.target.className)}>±</button>
+                <button className="CE"id="top" onClick={e => this.props.onClick(e.target.className)}>CE</button>
+                <button className="C" id="top"onClick={e => this.props.onClick(e.target.className)}>C</button><br/>
 
                 <button className="1" onClick={e => this.props.onClick(e.target.className)}>1</button>
                 <button className="2" onClick={e => this.props.onClick(e.target.className)}>2</button>
